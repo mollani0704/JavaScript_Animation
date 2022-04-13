@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            margin-top: 35px;
+            height: 500px;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: #8ac007;
+        }
+
+        .button_group {
+            padding-top: 30px;
+        }
+        .button_group a {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 5px 20px;
+            font-size: 0.875em;
+            background-color: #666;
+            color: #fff;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', event => {
+            event.preventDefault();
+
+            let box = document.querySelector('.box');
+            let size_btn = document.querySelector('.size_btn');
+            let opacity_btn = document.querySelector('.opacity_btn');
+            let reset_btn = document.querySelector('.reset_btn');
+
+            let targetWidth = 400;
+            let currentWidth = 50;
+
+            size_btn.addEventListener('click', event => {
+                event.preventDefault();
+
+                let timer = setInterval(() => {
+                    if (targetWidth - currentWidth > 10) {
+                        currentWidth += 10;
+                    } else {
+                        currentWidth = targetWidth;
+                        clearInterval(timer);
+                    }
+                    box.style.width = currentWidth + 'px';
+                    box.style.height = currentWidth + 'px';
+                }, 10);
+            });
+        });
+    </script>
+    <body>
+        <div class="container">
+            <div class="box"></div>
+            <div class="button_group">
+                <a href="" class="size_btn">size_big</a>
+                <a href="" class="opacity_btn">opacity_0</a>
+                <a href="" class="reset_btn">reset</a>
+            </div>
+        </div>
+    </body>
+</html>
