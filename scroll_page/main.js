@@ -72,46 +72,46 @@ window.addEventListener('load', () => {
             targetY = num * height;
 
             console.log(`num : ${num}, targetY : ${targetY}`);
-            moveCategory(offsetY, targetY);
+            window.scrollTo({ top: targetY, behavior: 'smooth' });
         });
     }
 
-    function moveCategory(offsetY, targetY) {
-        moving = true;
+    // function moveCategory(offsetY, targetY) {
+    //     moving = true;
 
-        let timer = setInterval(() => {
-            if (targetY > offsetY) {
-                if (Math.abs(targetY - offsetY) > 8) {
-                    offsetY += 8;
-                } else {
-                    offsetY = targetY;
-                    moving = false;
-                    clearInterval(timer);
-                    for (let i = 0; i < menuList.length; i++) {
-                        if (i === n) {
-                            menuList[i].classList.add('active');
-                        } else {
-                            menuList[i].classList.remove('acitve');
-                        }
-                    }
-                }
-            } else {
-                if (Math.abs(targetY - offsetY) > 8) {
-                    offsetY -= 8;
-                } else {
-                    offsetY = targetY;
-                    moving = false;
-                    clearInterval(timer);
-                    for (let i = 0; i < menuList.length; i++) {
-                        if (i === n) {
-                            menuList[i].classList.add('active');
-                        } else {
-                            menuList[i].classList.remove('active');
-                        }
-                    }
-                }
-            }
-            window.scrollTo({ top: offsetY, behavior: 'smooth' });
-        }, 1);
-    }
+    //     let timer = setInterval(() => {
+    //         if (targetY > offsetY) {
+    //             if (Math.abs(targetY - offsetY) > 8) {
+    //                 offsetY += 8;
+    //             } else {
+    //                 offsetY = targetY;
+    //                 moving = false;
+    //                 clearInterval(timer);
+    //                 for (let i = 0; i < menuList.length; i++) {
+    //                     if (i === n) {
+    //                         menuList[i].classList.add('active');
+    //                     } else {
+    //                         menuList[i].classList.remove('acitve');
+    //                     }
+    //                 }
+    //             }
+    //         } else {
+    //             if (Math.abs(targetY - offsetY) > 8) {
+    //                 offsetY -= 8;
+    //             } else {
+    //                 offsetY = targetY;
+    //                 moving = false;
+    //                 clearInterval(timer);
+    //                 for (let i = 0; i < menuList.length; i++) {
+    //                     if (i === n) {
+    //                         menuList[i].classList.add('active');
+    //                     } else {
+    //                         menuList[i].classList.remove('active');
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //         window.scrollTo({ top: offsetY, behavior: 'smooth' });
+    //     }, 1);
+    // }
 });
