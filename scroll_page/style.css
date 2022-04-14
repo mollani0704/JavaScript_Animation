@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+#GNB {
+    position: fixed;
+    right: 50px;
+    top: 50%;
+    margin-top: -88px;
+    width: 16px;
+    height: 176px;
+}
+
+#GNB li {
+    margin-top: 16px;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 2px solid #000;
+}
+
+#GNB li:first-child {
+    margin-top: 0px;
+}
+
+#GNB li.active {
+    background-color: #000;
+}
+
+#GNB li a {
+    display: block;
+    width: 16px;
+    height: 16px;
+    text-indent: -9999px;
+}
+
+section {
+    padding: 20px;
+    height: 100vh;
+}
