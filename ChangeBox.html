@@ -52,9 +52,14 @@
             let targetWidth = 400;
             let currentWidth = 50;
 
+            let reset_targetWidth = 50;
+
+            let opacity = 1;
+
             size_btn.addEventListener('click', event => {
                 event.preventDefault();
 
+                console.log(currentWidth, targetWidth);
                 let timer = setInterval(() => {
                     if (targetWidth - currentWidth > 10) {
                         currentWidth += 10;
@@ -64,6 +69,47 @@
                     }
                     box.style.width = currentWidth + 'px';
                     box.style.height = currentWidth + 'px';
+                }, 10);
+                targetWidth = 400;
+            });
+
+            opacity_btn.addEventListener('click', event => {
+                event.preventDefault();
+
+                let timer = setInterval(() => {
+                    if (opacity > 0.1) {
+                        opacity -= 0.1;
+                    } else {
+                        opacity = 0;
+                        clearInterval(timer);
+                    }
+                    box.style.opacity = opacity;
+                }, 20);
+            });
+
+            reset_btn.addEventListener('click', event => {
+                event.preventDefault();
+                console.log(currentWidth, targetWidth, opacity);
+                let timer = setInterval(() => {
+                    if (currentWidth - reset_targetWidth >= 10) {
+                        currentWidth -= 10;
+                    } else {
+                        clearInterval(timer);
+                        targetWidth = currentWidth;
+                    }
+
+                    box.style.width = currentWidth + 'px';
+                    box.style.height = currentWidth + 'px';
+                }, 10);
+
+                let timer2 = setInterval(() => {
+                    if (opacity < 1) {
+                        opacity += 0.1;
+                    } else {
+                        oapcity = 1;
+                        clearInterval(timer2);
+                    }
+                    box.style.opacity = opacity;
                 }, 10);
             });
         });
